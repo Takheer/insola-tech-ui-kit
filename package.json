@@ -1,6 +1,6 @@
 {
   "name": "insola-tech-ui-kit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "files": ["dist"],
   "main": "./dist/my-lib.umd.cjs",
