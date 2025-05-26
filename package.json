@@ -1,8 +1,17 @@
 {
   "name": "insola-tech-ui-kit",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.2",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/my-lib.umd.cjs",
+  "module": "./dist/my-lib.js",
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib.js",
+      "require": "./dist/my-lib.umd.cjs"
+    },
+    "./style.css": "./dist/my-lib.css"
+  },
   "description": "Insola Tech ui kit",
   "author": "Insola.tech <https://insola.tech/>",
   "repository": {
@@ -55,5 +64,8 @@
   },
   "resolutions": {
     "jackspeak": "2.1.1"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.1.7"
   }
 }

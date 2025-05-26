@@ -1,69 +1,47 @@
-<p align="center">
-  <a href="https://www.chromatic.com/">
-    <img alt="Chromatic" src="https://avatars2.githubusercontent.com/u/24584319?s=200&v=4" width="60" />
+<h1 style="display: flex; align-items: center; justify-content: center">
+  <a href="https://insola.tech/" style="display:flex; align-items: center; margin-right: 10px;">
+    <img alt="Insola Tech" src="public/favicon.png" width="60" />
+  Insola Tech
   </a>
-</p>
-
-<h1 align="center">
-  Chromatic's Intro to Storybook Vue template
+  Ui Kit
 </h1>
 
-This template ships with the main Vue and Storybook configuration files you'll need to get up and running fast.
+Библиотека компонентов группы пет-проектов Insola Tech. Используется в insola-design.ru, Insola Layout, Verni Sotku и многих других
 
-## 🚅 Quick start
+## 🚅 Быстрый старт
 
-1.  **Create the application.**
+1.  **Установи зависимости**
 
-    Use [degit](https://github.com/Rich-Harris/degit) to get this template.
-
-    ```shell
-    # Clone the template
-    npx degit chromaui/intro-storybook-vue-template taskbox
-    ```
-
-1.  **Install the dependencies.**
-
-    Navigate into your new site’s directory and install the necessary dependencies.
+    Перейди в папку с китом и установи зависимости своим любимым менеджером пакетов
 
     ```shell
-    # Navigate to the directory
-    cd taskbox/
-
-    # Install the dependencies
-    yarn
+    cd insola-tech-ui-kit
+    npm i
     ```
 
-1.  **Open the source code and start editing!**
+1.  **Открой исходники и начинай говнокодить**
 
-    Open the `taskbox` directory in your code editor of choice and building your first component!
+    Посмотри, как организованы компоненты, и делай похожим образом.
 
-1.  **Browse your stories!**
+1.  **Проверь, что всё работает**
 
-    Run `yarn storybook` to see your component's stories at `http://localhost:6006`
+    Запусти сторибук `npm run storybook` чтобы посмотреть, как компоненты работают в изоляции, что можно с ними делать и какие есть крайние случаи их использования. 
 
-## 🔎 What's inside?
+    Сторибук запустится по адресу `http://localhost:6006`
 
-A quick look at the top-level files and directories included with this template.
+## 🔎 Как всё устроено?
+
+Компоненты лежат внутри папки `/src/components` и организованы по упрощённому подобию FSD.
+Внутри папки компоненты разбиты по файлам:
 
     .
-    ├── .storybook
-    ├── node_modules
-    ├── public
-    ├── src
-    ├── .gitignore
-    ├── .eslintrc.cjs
-    ├── .prettierrc.json
-    ├── index.html
-    |── jsconfig.json
-    ├── LICENSE
-    ├── yarn.lock
-    ├── package.json
-    ├── vite.config.js
-    └── README.md
+    ├── index.vue
+    ├── stories.ts
+    └── types.ts
 
-1.  **`.storybook`**: This directory contains Storybook's [configuration](https://storybook.js.org/docs/react/configure/overview) files.
+1.  **`index.vue`**: Содержит сам компонент, его логику и html-шаблон
 
-2.  **`node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages).
+2.  **`stories.ts`**: Здесь определяются истории, которые потом отоб
 
 3.  **`public`**: This directory will contain the development and production build of the site.
 
