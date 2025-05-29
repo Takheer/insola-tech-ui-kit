@@ -1,14 +1,8 @@
 <script setup lang="ts">
 import {ref, watch} from "vue";
+import { TSwitchProps } from '@/components/IKSwitch/types'
 
-type TProps = {
-  options: {
-    id: any
-    value: any
-    selected?: boolean
-  }[]
-};
-const props = defineProps<TProps>();
+const props = defineProps<TSwitchProps>();
 
 type TEmits = {
   (e: 'select', id: any): void
@@ -29,16 +23,16 @@ function setSelected(id: any) {
 </script>
 
 <template>
-<div class="flex flex-row p-1 h-fit w-fit bg-gray-200 rounded">
-  <div
-    v-for="option of localOptions"
-    class="cursor-pointer rounded py-1 px-2"
-    :class="option.selected ? 'bg-white' : ''"
-    @click="setSelected(option.id)"
-  >
-    {{option.value}}
+  <div class="flex flex-row p-1 h-fit w-fit bg-gray-200 rounded">
+    <div
+      v-for="option of localOptions"
+      class="cursor-pointer rounded py-1 px-2"
+      :class="option.selected ? 'bg-white' : ''"
+      @click="setSelected(option.id)"
+    >
+      {{ option.value }}
+    </div>
   </div>
-</div>
 </template>
 
 <style lang="scss">

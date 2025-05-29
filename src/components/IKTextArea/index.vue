@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import { TTextAreaProps } from '@/components/IKTextArea/types'
 
 const model = defineModel()
 
@@ -11,13 +12,7 @@ function update(e: Event) {
 
 const localValue = ref('');
 
-type TProps = {
-  label: string,
-  error?: boolean,
-  errorMessage?: string
-  placeholder?: string
-};
-defineProps<TProps>();
+defineProps<TTextAreaProps>();
 </script>
 
 <template>
@@ -29,7 +24,7 @@ defineProps<TProps>();
       @input="update"
       :value="localValue"
       rows="3"
-      class="transition-all outline outline-gray-400 outline-2 hover:outline-orange-200 focus:outline-orange-400 rounded px-4 py-2"
+      class="transition-all outline-gray-400 outline-2 hover:outline-orange-200 focus:outline-orange-400 rounded px-4 py-2"
       :class="error ? 'outline-red-400' : ''" />
     <p v-if="error" class="text-red-400">{{ errorMessage }}</p>
   </div>

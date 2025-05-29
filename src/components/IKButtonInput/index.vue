@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import { TButtonInputProps } from '@/components/IKButtonInput/types'
 
 const model = defineModel()
 
@@ -10,15 +11,7 @@ function update(e: Event) {
 
 const input = ref<HTMLInputElement | null>(null);
 
-type TProps = {
-  label?: string,
-  error?: boolean,
-  errorMessage?: string
-  placeholder?: string
-  dense?: boolean
-  inline?: boolean
-};
-const props = defineProps<TProps>();
+const props = defineProps<TButtonInputProps>();
 const id = props.label || props.placeholder
 </script>
 
@@ -29,7 +22,7 @@ const id = props.label || props.placeholder
       :id="id"
       ref="input"
       @input="update"
-      class="transition-all outline outline-gray-400 outline-2 hover:outline-orange-200 focus:outline-orange-400 rounded"
+      class="transition-all outline-gray-400 outline-2 hover:outline-orange-200 focus:outline-orange-400 rounded"
       :class="[
         error ? 'outline-red-400' : '',
         dense ? 'px-2 py-1' : 'px-4 py-2',

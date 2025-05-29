@@ -1,24 +1,10 @@
 <script setup lang="ts">
 import {computed, ref, watch} from 'vue';
 import {PhX} from "@phosphor-icons/vue";
-import {useOverlay} from "@/components/ui/composables/useOverlay"
+import {useOverlay} from "@/components/composables/useOverlay"
+import { TModalProps } from '@/components/IKModal/types'
 
-const props = withDefaults(defineProps<TProps>(), { modelValue: undefined });
-
-type TProps = {
-  /**
-   * v-model, управляет состоянием модального окна
-   */
-  modelValue?: boolean;
-  /**
-   * Запрещает закрытие монадального океа по клику на оверлей
-   */
-  persistent?: boolean;
-  /**
-   * Позволяет открыть модальное окно на весь экран
-   */
-  fullscreen?: boolean;
-};
+const props = withDefaults(defineProps<TModalProps>(), { modelValue: undefined });
 
 type TEmits = {
   (e: 'update:modelValue', value: boolean): void;
@@ -104,7 +90,7 @@ export default {
           @click="onClickOutside"
           @touchstart.passive="onTouchBgDown"
         />
-
+        
         <div
           class="overlay__content relative w-fit h-fit"
           :class="overlayClass"
@@ -132,7 +118,7 @@ export default {
   &-leave-active {
     transition: opacity 0.2s ease-in-out;
   }
-
+  
   &-enter,
   &-leave-to {
     opacity: 0;

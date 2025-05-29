@@ -2,7 +2,9 @@
   "name": "insola-tech-ui-kit",
   "version": "0.0.3",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/my-lib.umd.cjs",
   "module": "./dist/my-lib.js",
   "exports": {
@@ -33,6 +35,8 @@
     "init-msw": "msw init public/"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.2.1",
+    "@vueuse/components": "^13.3.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {
@@ -57,6 +61,7 @@
     "msw-storybook-addon": "^2.0.3",
     "postcss": "^8.5.3",
     "prettier": "^3.2.5",
+    "sass-embedded": "^1.89.0",
     "storybook": "^8.3.2",
     "tailwindcss": "^4.1.7",
     "typescript-eslint": "^8.32.1",

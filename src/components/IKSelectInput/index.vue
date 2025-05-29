@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {onMounted} from "vue";
+import { TSelectInputProps } from '@/components/IKSelectInput/types'
 
 const model = defineModel()
 
@@ -8,18 +9,8 @@ function update(e: Event) {
   model.value = target.value
 }
 
-type TProps = {
-  label?: string,
-  options: any[],
-  itemValue?: string,
-  itemLabel?: string,
-  error?: boolean,
-  errorMessage?: string
-  placeholder?: string
-  dense?: boolean
-  selectedItemId?: string
-};
-const props = withDefaults(defineProps<TProps>(), {
+
+const props = withDefaults(defineProps<TSelectInputProps>(), {
   itemValue: 'value',
   itemLabel: 'label'
 });
@@ -33,19 +24,19 @@ onMounted(() => {
 </script>
 
 <template>
-<div class="flex flex-col gap-2">
-  <label v-if="label" :for="label">{{ label }}</label>
-  <select
-    v-model="model"
-    class="cursor-pointer transition-all outline outline-gray-400 outline-2 hover:outline-orange-200 focus:outline-orange-400 rounded appearance-none"
-    :class="dense ? 'px-2 py-1' : 'px-4 py-2'"
-    :id="id"
-  >
-    <option v-if="placeholder" value="" disabled selected>{{ placeholder }}</option>
-    <option v-for="option of options" :key="itemValue" :value="option[itemValue]">{{ option[itemLabel] }}</option>
-  </select>
-  <p v-if="error"></p>
-</div>
+  <div class="flex flex-col gap-2">
+    <label v-if="label" :for="label">{{ label }}</label>
+    <select
+      v-model="model"
+      class="cursor-pointer transition-all outline-gray-400 outline-2 hover:outline-orange-200 focus:outline-orange-400 rounded appearance-none"
+      :class="dense ? 'px-2 py-1' : 'px-4 py-2'"
+      :id="id"
+    >
+      <option v-if="placeholder" value="" disabled selected>{{ placeholder }}</option>
+      <option v-for="option of options" :key="itemValue" :value="option[itemValue]">{{ option[itemLabel] }}</option>
+    </select>
+    <p v-if="error" class="text-red-400">{{errorMessage}}</p>
+  </div>
 </template>
 
 <style scoped lang="scss">

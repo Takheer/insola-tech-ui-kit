@@ -11,7 +11,6 @@ type Story = StoryObj<typeof IKBaseLink>;
 export default {
   title: 'UI/BaseLink',
   component: IKBaseLink,
-  decorators: [() => ({ template: '<v-expansion-panels class="w-25"><story/></v-expansion-panels>' })],
   tags: ['autodocs'],
   argTypes: {
     disabled: { control: { type: 'boolean' }, defaultValue: false },

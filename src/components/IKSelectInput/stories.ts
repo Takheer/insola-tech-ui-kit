@@ -1,14 +1,14 @@
 import {StoryObj} from "@storybook/vue3";
-import IKTextInput from './index.vue'
-import { TTextInputProps } from '@/components/IKTextInput/types'
+import IKSelectInput from './index.vue'
+import { TSelectInputProps } from './types'
 
-type Story = StoryObj<typeof IKTextInput>;
+type Story = StoryObj<typeof IKSelectInput>;
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
-  title: 'UI/Inputs/TextInput',
-  component: IKTextInput,
+  title: 'UI/Inputs/SelectInput',
+  component: IKSelectInput,
   tags: ['autodocs'],
   argTypes: {
     disabled: { control: { type: 'boolean' }, defaultValue: false },
@@ -16,19 +16,25 @@ export default {
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
-    label: 'Text Input',
-    disabled: false,
+    label: 'Select Input',
+    placeholder: 'Select an option',
+    options: [
+      { value: 1, label: 'the quick' },
+      { value: 2, label: 'brown fox' },
+      { value: 3, label: 'jump over' },
+      { value: 4, label: 'a lazy dog' },
+    ],
     dense: false,
   },
-  render: (args: TTextInputProps) => ({
-    components: { IKTextInput },
+  render: (args: TSelectInputProps) => ({
+    components: { IKSelectInput },
     setup() {
       return { args }
     },
     template: `
-      <IKTextInput v-bind="args">
+      <IKSelectInput v-bind="args">
         Ссылка
-      </IKTextInput>
+      </IKSelectInput>
     `
   })
 };
@@ -36,12 +42,6 @@ export default {
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {}
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true
-  }
 };
 
 export const InputError: Story = {

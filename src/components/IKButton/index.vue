@@ -1,17 +1,9 @@
 <script setup lang="ts">
 import {PhCircleNotch} from "@phosphor-icons/vue";
 import {computed} from "vue";
+import { TButtonEmits, TButtonProps } from '@/components/IKButton/types'
 
-type TProps = {
-  to?: string
-  variant?: 'primary' | 'outline'
-  fullWidth?: boolean
-  size?: 'lg' | 'md' | 'sm'
-  loading?: boolean
-  dense?: boolean
-};
-
-const props = withDefaults(defineProps<TProps>(), {
+const props = withDefaults(defineProps<TButtonProps>(), {
   variant: 'primary',
   fullWidth: false,
   size: 'md',
@@ -49,10 +41,7 @@ const btnClass = computed(() => ['flex text-black rounded-lg',
 
 const widthClass = computed(() => props.fullWidth ? 'w-full justify-center' : 'grow-0 w-fit')
 
-type TEmits = {
-  (e: 'click'): void
-};
-const emits = defineEmits<TEmits>();
+const emits = defineEmits<TButtonEmits>();
 </script>
 
 <template>

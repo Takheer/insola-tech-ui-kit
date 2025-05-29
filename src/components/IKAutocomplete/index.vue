@@ -1,26 +1,8 @@
 <script setup lang="ts">
 import { vOnClickOutside } from '@vueuse/components'
-import IDTextInput from "@/components/ui/IKTextInput.vue";
+import IKTextInput from "@/components/IKTextInput/index.vue";
 import {computed, ref, watch} from "vue";
-
-export type TProps = {
-  modelValue?: string;
-  options: any[];
-  label?: string;
-  placeholder?: string;
-  id?: string;
-  disabled?: boolean;
-  message?: string;
-  error?: boolean;
-  errorMessage?: string;
-  success?: boolean;
-  successMessage?: string;
-  itemValue?: string;
-  itemLabel?: string;
-  returnObject?: boolean;
-  clearable?: boolean;
-  filterable?: boolean;
-};
+import { TAutocompleteProps } from '@/components/IKAutocomplete/types'
 
 export type TEmits = {
   (e: 'update:modelValue', value: string): void;
@@ -30,7 +12,7 @@ export type TEmits = {
   (e: 'clear'): void
 };
 
-const props = withDefaults(defineProps<TProps>(), {
+const props = withDefaults(defineProps<TAutocompleteProps>(), {
   id: '',
   label: '',
   placeholder: '',
@@ -55,7 +37,7 @@ const localModelValue = computed({
   get () {
     return normalizeItem(props.modelValue);
   },
-
+  
   set (value) {
     const newValue = props.returnObject || !value ? value : value[props.itemValue];
     emits('update:modelValue', newValue);
@@ -131,7 +113,7 @@ function onClickOutside () {
 function getHighlight ({ label, active }: { label: string; active: boolean }) {
   if (!query.value) {
     return label;
-  };
+  }
   const index = label.toLowerCase().indexOf(query.value.toLowerCase());
   if (index === -1) {
     return label;
@@ -149,7 +131,7 @@ function onClear () {
 </script>
 
 <template>
-  <IDTextInput
+  <IKTextInput
     v-model="query"
     @clear="onClear"
     @click.prevent="onClick"
@@ -173,7 +155,7 @@ function onClear () {
         </div>
       </div>
     </template>
-  </IDTextInput>
+  </IKTextInput>
 </template>
 
 <style lang="scss">
