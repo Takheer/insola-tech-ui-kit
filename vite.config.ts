@@ -15,10 +15,10 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/main.js'),
-      name: 'MyLib',
+      entry: resolve(__dirname, 'lib/main.ts'),
+      name: 'InsolaTechUiKit',
       // the proper extensions will be added
-      fileName: 'my-lib',
+      fileName: 'lib',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -30,6 +30,7 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
         },
+        interop: "auto"
       },
     },
   },

@@ -10,7 +10,7 @@ import IKTabs from '@/components/IKTabs/index.vue'
 import IKTextArea from '@/components/IKTextarea/index.vue'
 import IKTextInput from '@/components/IKTextInput/index.vue'
 
-export default {
+export {
   IKAutocomplete,
   IKBaseLink,
   IKButton,
