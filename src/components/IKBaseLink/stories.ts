@@ -1,16 +1,16 @@
 import { fn } from '@storybook/test';
 
 import {StoryObj} from "@storybook/vue3";
-import IKBaseLink from './index.vue'
+import IkBaseLink from './IKBaseLink.vue'
 import { TBaseLinkProps } from '@/components/IKBaseLink/types'
 
-type Story = StoryObj<typeof IKBaseLink>;
+type Story = StoryObj<typeof IkBaseLink>;
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
   title: 'UI/BaseLink',
-  component: IKBaseLink,
+  component: IkBaseLink,
   tags: ['autodocs'],
   argTypes: {
     disabled: { control: { type: 'boolean' }, defaultValue: false },
@@ -21,7 +21,7 @@ export default {
     onClick: fn(),
   },
   render: (args: TBaseLinkProps) => ({
-    components: { IKBaseLink },
+    components: { IKBaseLink: IkBaseLink },
     setup() {
       return { args }
     },

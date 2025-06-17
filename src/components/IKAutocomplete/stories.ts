@@ -1,17 +1,17 @@
 import { fn } from '@storybook/test';
 
 import {StoryObj} from "@storybook/vue3";
-import IKAutocomplete from './index.vue'
+import IkAutocomplete from './IKAutocomplete.vue'
 import { TAutocompleteProps } from '@/components/IKAutocomplete/types'
 import { PhPlus } from '@phosphor-icons/vue'
 
-type Story = StoryObj<typeof IKAutocomplete>;
+type Story = StoryObj<typeof IkAutocomplete>;
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
   components: { PhPlus },
   title: 'UI/Inputs/Autocomplete',
-  component: IKAutocomplete,
+  component: IkAutocomplete,
   tags: ['autodocs'],
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
@@ -33,7 +33,7 @@ export default {
     onClick: fn(),
   },
   render: (args: TAutocompleteProps) => ({
-    components: { IKAutocomplete, PhPlus },
+    components: { IKAutocomplete: IkAutocomplete, PhPlus },
     setup() {
       return { args }
     },

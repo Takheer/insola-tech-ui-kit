@@ -1,15 +1,17 @@
 {
   "name": "insola-tech-ui-kit",
-  "version": "0.0.6",
+  "version": "1.0.8",
   "type": "module",
   "files": [
     "dist"
   ],
   "main": "./dist/lib.umd.cjs",
   "module": "./dist/lib.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/lib.js",
+      "types": "./dist/index.d.ts",
       "require": "./dist/lib.umd.cjs"
     },
     "./style.css": "./dist/lib.css"
@@ -65,7 +67,8 @@
     "storybook": "^8.3.2",
     "tailwindcss": "^4.1.7",
     "typescript-eslint": "^8.32.1",
-    "vite": "^5.2.8"
+    "vite": "^5.2.8",
+    "vite-plugin-dts": "^4.5.4"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
