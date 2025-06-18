@@ -27,28 +27,15 @@ const emits = defineEmits<TCheckboxEmits>();
     <input
       :id="label"
       type="checkbox"
-      class="checkbox transition-all after:transition-all cursor-pointer appearance-none rounded bg-yellow-300 outline outline-yellow-400 flex items-center justify-center after:content-['\2714'] checked:after:opacity-0"
+      class="checkbox transition-all after:transition-all cursor-pointer appearance-none rounded bg-yellow-300 outline-2 outline-yellow-400 flex items-center justify-center after:content-['\2714']"
       :disabled="disabled"
       :style="{ width: `${size[props.size]}px`, height: `${size[props.size]}px`}"
-      :class="[disabled ? 'grayscale-100 after:grayscale-100' : '']"
+      :class="[
+        disabled ? 'grayscale-100 after:grayscale-100' : '',
+        model ? 'after:opacity-100' : 'after:opacity-0'
+      ]"
       v-model="model"
-    >
+    />
     <label v-if="label" :for="label" class="cursor-pointer">{{ label }}</label>
   </div>
 </template>
-
-<style lang="scss">
-.checkbox {
-  
-  &:disabled {
-    cursor: default;
-    &::after {
-      filter: grayscale(100%);
-    }
-  }
-}
-
-.sm {
-  font-size: 18px
-}
-</style>

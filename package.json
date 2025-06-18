@@ -1,6 +1,6 @@
 {
   "name": "insola-tech-ui-kit",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "type": "module",
   "files": [
     "dist"
@@ -12,9 +12,11 @@
     ".": {
       "import": "./dist/lib.js",
       "types": "./dist/index.d.ts",
-      "require": "./dist/lib.umd.cjs"
+      "require": "./dist/lib.umd.cjs",
+      "styles": "./dist/style.css"
     },
-    "./style.css": "./dist/lib.css"
+    "./style.css": "./dist/style.css",
+    "./css": "./dist/style.css"
   },
   "description": "Insola Tech ui kit",
   "author": "Insola.tech <https://insola.tech/>",

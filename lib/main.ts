@@ -12,6 +12,8 @@ import IKTabs from '../src/components/IKTabs/index.vue'
 import IKTextArea from '../src/components/IKTextArea/index.vue'
 import IKTextInput from '../src/components/IKTextInput/index.vue'
 
+import "../src/assets/main.css"
+
 export {
   IKAutocomplete,
   IKBaseLink,
