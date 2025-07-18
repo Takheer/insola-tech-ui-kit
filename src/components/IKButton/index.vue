@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<TButtonProps>(), {
 
 const btnClasses = {
   primary: 'bg-yellow-400',
-  outline: 'border border-1'
+  outline: 'border border-1',
+  disabled: 'bg-yellow-100 text-grey-300'
 }
 
 const btnHoverClasses = {
@@ -32,11 +33,12 @@ const iconSize = {
   sm: 16
 }
 
-const btnClass = computed(() => ['flex text-black rounded-lg',
-  btnClasses[props.variant],
-  props.loading ? '' : btnHoverClasses[props.variant],
+const btnClass = computed(() => ['flex  rounded-lg',
+  btnClasses[props.disabled ? 'disabled' : props.variant],
+  props.loading || props.disabled ? '' : btnHoverClasses[props.variant],
+  props.loading || props.disabled ? 'text-gray-500' : 'text-black',
   sizeClasses[props.size],
-  props.loading ? 'cursor-default' : 'cursor-pointer transition-all'].join(' ')
+  props.loading || props.disabled ? 'cursor-default' : 'cursor-pointer transition-all'].join(' ')
 )
 
 const widthClass = computed(() => props.fullWidth ? 'w-full justify-center' : 'grow-0 w-fit')
@@ -55,8 +57,9 @@ const emits = defineEmits<TButtonEmits>();
   </a>
   <button
     v-else
+    :disabled="disabled"
     :class="[btnClass, widthClass]"
-    @click="() => loading ? null : emits('click')"
+    @click="() => loading || disabled ? null : emits('click')"
   >
     <PhCircleNotch :size="iconSize[size]" v-if="loading" class="animate-spin" />
     <slot v-else />

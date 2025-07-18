@@ -5,6 +5,7 @@ export type TButtonProps = {
   size?: 'lg' | 'md' | 'sm'
   loading?: boolean
   dense?: boolean
+  disabled?: boolean
 };
 
 export type TButtonEmits = {
